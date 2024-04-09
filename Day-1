@@ -1,0 +1,9 @@
+Day 1 Challenge
+A travel company wants to send a promotional email to its subscribers about a new holiday package. The company wants to display the recipient's first name in the email and also wants to ensure that the first name is properly capitalised.
+
+%%[
+Set @Firstname = Propercase(Firstname)
+
+]%%
+
+Hello %%=v(Firstname)=%%
