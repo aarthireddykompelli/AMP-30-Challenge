@@ -1,0 +1,29 @@
+Day 2 Challenge
+A health club wants to send a renewal reminder email to its members who are due for renewal in 30 days. The email should include the member's full name and the date (as yyyy-mm-dd) when their membership will expire.
+
+Email	                                     FirstName	                 LastName	               RenewalDate
+john.doe@example.com	                     John	                       Doe	                   2023-04-20
+jane.smith@example.com	                   Jane	                       Smith	                 2023-04-30
+michael.jones@example.com	                 Michael	                   Jones	                 2023-05-15
+emily.davis@example.com	                   Emily	                     Davis	                 2023-05-28
+sarah.wilson@example.com	                 Sarah	                     Wilson	                 2023-06-03
+
+Solution:
+
+%%[
+Var @FirstName , @LastName , @RenewalDate
+Set @FirstName = AttributeValue("@FirstName")
+Set @FirstName = ProperCase("@FirstName")
+Set @LastName = AttributeValue("@LastName")
+Set @LastName = ProperCase("@LastName")
+
+Set @FullName = Concat(@firstName, " ", @lastName)
+Set @RenewalDate = AttributeValue("@RenewalDate")
+Set @FormattedRenewalDate = Format(@RenewalDate, "MMMM dd, YYYY")
+
+]%%
+
+
+Hello %%=v(@FullName)==%% ,
+
+Expires on %%=v(@FormattedRenewalDate)==%%
